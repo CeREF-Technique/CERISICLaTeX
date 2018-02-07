@@ -1,7 +1,123 @@
+%----------------------
+% General Informations
+%----------------------
 \NeedsTeXFormat{LaTeX2e}[1999/01/01]
-\ProvidesPackage{CERISICLaTeX}[2017/03/13 v0.1]
+\ProvidesPackage{CERISICLaTeX}[2018/02/07 v0.3]
 \RequirePackage{graphicx}
-\RequirePackage[top=3cm,bottom=3cm,right=3.5cm,left=3.5cm]{geometry}
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+\RequirePackage{keyval}
+%\RequirePackage{color}
+\RequirePackage{xcolor}
+
+%\RequirePackage[top=3cm,bottom=3cm,right=3.5cm,left=3.5cm]{geometry}
+
+%--------------------
+% Colors Definitions
+%--------------------
+\definecolor{VertBleu}{rgb}{0.055 0.596 0.576}
+\definecolor{tech}{rgb}{0.055 0.318 0.54}
+\definecolor{agro}{rgb}{0.8 0.8 0.6}
+\definecolor{paramed}{rgb}{0.74 0.11 0.48}
+\definecolor{black}{rgb}{0 0 0}
+
+%---------------------
+% Options Declaration
+%---------------------
+
+\define@key{tp}{category}{\def\tp@category{#1}}
+\define@key{tp}{title}{\def\tp@title{#1}}
+\define@key{tp}{subtitle}{\def\tp@subtitle{#1}}
+\define@key{tp}{project}{\def\tp@project{#1}}
+\define@key{tp}{version}{\def\tp@version{#1}}
+
+\define@key{tp}{author}{\def\tp@author{#1}}
+\define@key{tp}{authortitle}{\def\tp@authortitle{#1}}
+\define@key{tp}{tutor}{\def\tp@tutor{#1}}
+\define@key{tp}{tutortitle}{\def\tp@tutortitle{#1}}
+
+\define@key{tp}{industrialpartner}{\def\tp@industrialpartner{#1}}
+\define@key{tp}{scientificpartner}{\def\tp@scientificpartner{#1}}
+\define@key{tp}{fundingsponsor}{\def\tp@fundingsponsor{#1}}
+
+\define@key{tp}{date}{\def\tp@date{#1}}
+
+
+\def\tp@doccolor{black}
+
+\renewcommand{\titlepage}[1][]{%
+	\setkeys{tp}{#1}
+	\thispagestyle{empty}
+	
+	\ifthenelse{\equal{\tp@category}{agronomic}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-CatAgro.jpg}};\renewcommand{\tp@doccolor}{agro}}{}
+	
+	\ifthenelse{\equal{\tp@category}{paramedical}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-CatParamed.jpg}
+	};\renewcommand{\tp@doccolor}{paramed}}{}
+	
+	\ifthenelse{\equal{\tp@category}{technical}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-CatTech.jpg}};\renewcommand{\tp@doccolor}{tech}}{}
+	
+	\ifthenelse{\equal{\tp@category}{food}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-Alim.jpg}};\renewcommand{\tp@doccolor}{agro}}{}
+	
+	\ifthenelse{\equal{\tp@category}{animal}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-Animal.jpg}};\renewcommand{\tp@doccolor}{agro}}{}
+	
+	%\ifthenelse{\equal{\tp@category}{motricity}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-GEv2.jpg}};\renewcommand{\tp@doccolor}{paramed}}{}
+	
+	%\ifthenelse{\equal{\tp@category}{care}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-GEv2.jpg}};\renewcommand{\tp@doccolor}{paramed}}{}
+	
+	%\ifthenelse{\equal{\tp@category}{diagnostic}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-GEv2.jpg}};\renewcommand{\tp@doccolor}{paramed}}{}
+	
+	\ifthenelse{\equal{\tp@category}{chemistry}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-CBv2.jpg}};\renewcommand{\tp@doccolor}{tech}}{}
+	
+	\ifthenelse{\equal{\tp@category}{electronics}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-GEv2.jpg}};\renewcommand{\tp@doccolor}{tech}}{}
+	
+	\ifthenelse{\equal{\tp@category}{mechanics}}{\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-EMTv2.jpg}};\renewcommand{\tp@doccolor}{tech}}{}
+	
+	\vspace*{5cm}
+	\begin{flushright}
+		\textcolor{\tp@doccolor}{\tp@title}
+	\end{flushright}
+	
+	\begin{flushright}
+		\textcolor{\tp@doccolor}{\tp@subtitle}
+	\end{flushright}
+	
+	\begin{flushright}
+		\textcolor{\tp@doccolor}{\tp@project}
+	\end{flushright}
+	
+	\begin{flushright}
+		\textcolor{\tp@doccolor}{\tp@version}
+	\end{flushright}
+	
+	\begin{center}
+		\begin{minipage}{0.32\textwidth}
+			\begin{flushright}
+				\tp@tutortitle\\
+				\tp@tutor
+			\end{flushright}
+		\end{minipage}
+		\hspace*{3cm}
+		\begin{minipage}{0.32\textwidth}
+			\begin{flushleft}
+				\tp@authortitle\\
+				\tp@author
+			\end{flushleft}
+		\end{minipage}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\tp@date
+	\end{center}
+}
+
+
+
+
+
+
+
+
 
 \newcommand{\doctitle}[1]{
   \def\@doctitle{#1}
@@ -47,6 +163,7 @@
 {
 	\thispagestyle{empty}
 	
+	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-Alim.jpg}};
 	\vspace{2cm}
 	\begin{minipage}{0.47\textwidth}
 		\begin{flushleft}
