@@ -5,23 +5,32 @@
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 
+\usepackage[top=3cm,bottom=3cm,right=3cm,left=3cm]{geometry}
+
 \usepackage{CERISICLaTeX}
 
 
-\doctitle{\huge \bf A title}%{\huge}
-\projectname{\Large{PROJECT}}
-\projectdesc{\large \sl A very long and complicated subtitle}
-\authors{J. {\sc Doe}}
-\version{v0.1}
-\date{\Large \today}
-\industrialpartner{2cm}{img/CERISIC.jpg}
-\scientificpartner{2cm}{img/CERISIC.jpg}
-%\industrialpartner{0.9\textwidth}{C:/PATH/TO/INDUSTRIAL/PARTNER/Logo.png}
-%\scientificpartner{0.9\textwidth}{C:/PATH/TO/SCIENTIFIC/PARTNER/Logo.jpg}
 
 \begin{document}
 
-\maketitle
+\titlepage[
+category=electronics,
+title={\Huge \bf A title},
+subtitle={\large \bf A very long and complicated subtitle},
+project={\sl PROJECT},
+version={v0.1},
+tutortitle={\textbf{Promoter:}},
+tutor={Doe J.},
+authortitle={\textbf{Author:}},
+author={Vachaudez J.},
+industrialpartner = {\includegraphics[height=0.2\textwidth]{./img/I-Care.png}},
+scientificpartner = {\includegraphics[height=0.2\textwidth]{./img/ULB.jpg}},
+%fundingsponsor = {\includegraphics[height=0.15\textwidth]{./img/Wallonie.png}},
+inter=5cm,
+between=2cm,
+bottom=5cm,
+date=\today]
+
 
 
 \end{document}
