@@ -7,10 +7,8 @@
 \RequirePackage{tikz}
 \RequirePackage{ifthen}
 \RequirePackage{keyval}
-%\RequirePackage{color}
 \RequirePackage{xcolor}
 
-%\RequirePackage[top=3cm,bottom=3cm,right=3.5cm,left=3.5cm]{geometry}
 
 %--------------------
 % Colors Definitions
@@ -41,6 +39,20 @@
 \define@key{tp}{fundingsponsor}{\def\tp@fundingsponsor{#1}}
 
 \define@key{tp}{date}{\def\tp@date{#1}}
+
+
+\newcommand{\tp@top}{5cm}
+\define@key{tp}{top}{\renewcommand{\tp@top}{#1}}
+
+\newcommand{\tp@between}{0cm}
+\define@key{tp}{between}{\renewcommand{\tp@between}{#1}}
+
+\newcommand{\tp@bottom}{0cm}
+\define@key{tp}{bottom}{\renewcommand{\tp@bottom}{#1}}
+
+\newcommand{\tp@inter}{3cm}
+\define@key{tp}{inter}{\renewcommand{\tp@inter}{#1}}
+
 
 
 \def\tp@doccolor{black}
@@ -89,6 +101,8 @@
 		\textcolor{\tp@doccolor}{\tp@version}
 	\end{flushright}
 	
+	\vspace*{\tp@between}
+	
 	\begin{center}
 		\begin{minipage}{0.32\textwidth}
 			\begin{flushright}
@@ -96,7 +110,7 @@
 				\tp@tutor
 			\end{flushright}
 		\end{minipage}
-		\hspace*{3cm}
+		\hspace*{\tp@inter}
 		\begin{minipage}{0.32\textwidth}
 			\begin{flushleft}
 				\tp@authortitle\\
@@ -104,6 +118,46 @@
 			\end{flushleft}
 		\end{minipage}
 	\end{center}
+	
+	\vspace*{\tp@bottom}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+			\ifthenelse{\isundefined{\tp@fundingsponsor}}{
+			%fundingsponsor is undefined
+				\ifthenelse{\isundefined{\tp@scientificpartner}}{
+				%scientificpartner is undefined
+				}
+				{
+					\tp@scientificpartner
+				}
+			}
+			{
+				\tp@fundingsponsor
+			}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+			\ifthenelse{\isundefined{\tp@fundingsponsor}}{
+				\ifthenelse{\isundefined{\tp@industrialpartner}}{
+				}
+				%else
+				{
+					\tp@industrialpartner
+				}
+			}
+			%else
+			{
+				\ifthenelse{\isundefined{\tp@scientificpartner}}{\tp@industrialpartner
+				}
+				%else
+				{
+					\tp@scientificpartner
+					\tp@industrialpartner
+				}
+			}
+		\end{center}
+	\end{minipage}
 	
 	\vfill
 	\begin{center}
@@ -113,110 +167,3 @@
 
 
 
-
-
-
-
-
-
-\newcommand{\doctitle}[1]{
-  \def\@doctitle{#1}
-  }
-	
-\newcommand{\projectname}[1]{
-  \def\@projectname{#1}
-  }
-  
-\newcommand{\projectdesc}[1]{
-  \def\@projectdesc{#1}
-  }
-
-\newcommand{\authors}[1]{
-  \def\@authors{#1}
-  }
-
-\newcommand{\version}[1]{
-  \def\@version{#1}
-  }
-
-\renewcommand{\date}[1]{
-  \def\@date{#1}
-  }
-
-\newcommand{\industrialpartner}[2]{
-  \def\@industrialpartnersize{#1}
-  \def\@industrialpartnerimage{#2}
-  }
-
-\newcommand{\scientificpartner}[2]{
-  \def\@scientificpartnersize{#1}
-  \def\@scientificpartnerimage{#2}
-  }
-
-
-
-
-
-
-
-\renewcommand{\maketitle}
-{
-	\thispagestyle{empty}
-	
-	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{CERISIC-Alim.jpg}};
-	\vspace{2cm}
-	\begin{minipage}{0.47\textwidth}
-		\begin{flushleft}
-			\includegraphics[height=3cm]{img/CERISIC.jpg}
-		\end{flushleft}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.47\textwidth}
-		\begin{flushright}
-			Campus HELHa\\
-			Chaussée de Binche, 159\\
-			7000 Mons\\
-			Belgique
-		\end{flushright}
-	\end{minipage}
-	\vspace{5cm}
-	
-	\begin{center}
-		\rule{\textwidth}{1pt}
-	\end{center}
-	\begin{center}
-		\@doctitle
-	\end{center}
-	\begin{center}
-		\rule{\textwidth}{1pt}
-	\end{center}
-	
-	\begin{flushright}
-		\@projectname\\
-		\@projectdesc
-	\end{flushright}
-	
-	\vspace{0.2cm}
-	
-	\begin{flushright}
-		\@authors\\
-		\@version
-	\end{flushright}
-	
-	\vfill
-	\begin{minipage}{0.47\textwidth}
-		\begin{flushleft}
-			\includegraphics[height=\@scientificpartnersize]{\@scientificpartnerimage}
-		\end{flushleft}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.47\textwidth}
-		\begin{flushright}
-			\includegraphics[height=\@industrialpartnersize]{\@industrialpartnerimage}
-		\end{flushright}
-	\end{minipage}
-	\vspace{1cm}
-	\begin{center}
-		\@date
-	\end{center}
-}
