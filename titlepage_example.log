@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.2)  7 FEB 2018 13:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.2)  7 FEB 2018 13:56
 entering extended mode
 **./titlepage_example.tex
 (titlepage_example.tex
@@ -815,17 +815,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 32.
 
-<./img/ULB.jpg, id=5, 1927.2pt x 963.6pt>
-File: ./img/ULB.jpg Graphic file (type jpg)
- <use ./img/ULB.jpg>
-Package pdftex.def Info: ./img/ULB.jpg used on input line 32.
-(pdftex.def)             Requested size: 86.9261pt x 43.4705pt.
+<./img/CERISIC_logo.png, id=5, 1115.367pt x 572.1375pt>
+File: ./img/CERISIC_logo.png Graphic file (type png)
 
-<./img/I-Care.png, id=6, 299.6796pt x 102.6234pt>
-File: ./img/I-Care.png Graphic file (type png)
- <use ./img/I-Care.png>
-Package pdftex.def Info: ./img/I-Care.png used on input line 32.
-(pdftex.def)             Requested size: 126.94373pt x 43.4705pt.
+<use ./img/CERISIC_logo.png>
+Package pdftex.def Info: ./img/CERISIC_logo.png used on input line 32.
+(pdftex.def)             Requested size: 84.73813pt x 43.4705pt.
+File: ./img/CERISIC_logo.png Graphic file (type png)
+ <use ./img/CERISIC_logo.png>
+Package pdftex.def Info: ./img/CERISIC_logo.png used on input line 32.
+(pdftex.def)             Requested size: 84.73813pt x 43.4705pt.
 
 Overfull \hbox (8.3555pt too wide) in paragraph at lines 32--32
 []$[]$ $[]$ 
@@ -834,24 +833,24 @@ Overfull \hbox (8.3555pt too wide) in paragraph at lines 32--32
 [1
 
 {C:/Users/Julien/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Program
- Files/MiKTeX 2.9/tex/latex/CERISICLaTeX/img/CERISIC-GEv2.jpg> <./img/ULB.jpg> 
-<./img/I-Care.png>] (titlepage_example.aux) ) 
+ Files/MiKTeX 2.9/tex/latex/CERISICLaTeX/img/CERISIC-GEv2.jpg> <./img/CERISIC_l
+ogo.png>] (titlepage_example.aux) ) 
 Here is how much of TeX's memory you used:
- 12237 strings out of 493634
- 241093 string characters out of 3143742
+ 12232 strings out of 493634
+ 241045 string characters out of 3143742
  274716 words of memory out of 3000000
- 15384 multiletter control sequences out of 15000+200000
+ 15380 multiletter control sequences out of 15000+200000
  36433 words of font info for 32 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,6n,56p,425b,599s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts
-/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmro10.pfb>
-Output written on titlepage_example.pdf (1 page, 364021 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
+/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmro10.pfb>
+Output written on titlepage_example.pdf (1 page, 351462 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
+ 30 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
